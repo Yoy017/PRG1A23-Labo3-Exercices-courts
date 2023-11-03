@@ -7,9 +7,24 @@ using namespace std;
 // Cette fonction doit fonctionner pour n positif ou nul et
 // pour b entre 2 et 36. Les chiffres de 10 à 35 utilisent
 // les lettres majuscules de A à Z.
+string en_base(unsigned n, unsigned b) {
+   string result = "";
+   if(n == 0)
+      return "0";
+
+   while (n > 0) {
+      int digit = n % b;
+      if (digit < 10) {
+         result = to_string(digit) + result;
+      } else {
+         result = char('A' + digit - 10) + result; // Représentation en hexadécimal
+      }
+      n /= b;
+   }
+   return result;
+}
 
 int main() {
-
   for(int b = 2; b <= 36; ++b)
   {
      cout << 42 << " en base " << b << " = " << en_base(42,b) << endl;

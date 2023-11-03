@@ -10,6 +10,12 @@ using namespace std;
 //
 // Vous pouvez uniquement utiliser la méthode length() et les
 // opérateurs [] et += de la classe string.
+string sous_chaine(string str, int pos, int len) {
+   string result = "";
+   for (int i = pos; i < pos + len && i < str.length(); i++)
+      result += str[i];
+   return result;
+}
 
 int main() {
 
